@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A letter about why we started USA Insider</title>
+<meta name="description" content="A letter from the founding editor of USA Insider about why financial news stopped being for grown-ups — and what we're building instead.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="./style.css">
+<style>
+  body {
+    background: #faf7ef;
+  }
+
+  /* Editorial hero */
+  .letter-header {
+    padding: clamp(var(--space-16), 10vw, var(--space-24)) 0 var(--space-12);
+    text-align: center;
+    border-bottom: 1px solid var(--color-rule);
+  }
+  .letter-header h1 {
+    max-width: 20ch;
+    margin: var(--space-4) auto var(--space-6);
+    font-size: clamp(2.25rem, 1.8rem + 2.5vw, 4rem);
+  }
+  .letter-meta {
+    font-family: 'Inter', sans-serif;
+    font-size: var(--text-sm);
+    color: var(--color-ink-muted);
+    font-style: italic;
+  }
+
+  /* Long-form prose */
+  .letter-body {
+    padding: clamp(var(--space-16), 10vw, var(--space-24)) 0;
+  }
+  .letter-body .container-prose {
+    max-width: 62ch;
+  }
+  .letter-body p {
+    font-family: 'Source Serif 4', serif;
+    font-size: clamp(1.125rem, 1.05rem + 0.4vw, 1.25rem);
+    line-height: 1.7;
+    color: var(--color-ink);
+    margin-bottom: var(--space-6);
+  }
+  .letter-body p.opener {
+    font-size: clamp(1.35rem, 1.2rem + 0.6vw, 1.55rem);
+    line-height: 1.5;
+    font-style: italic;
+    color: var(--color-ink-soft);
+    margin-bottom: var(--space-8);
+  }
+
+  .letter-body h2 {
+    font-family: 'Fraunces', serif;
+    font-size: var(--text-xl);
+    letter-spacing: -0.015em;
+    margin: var(--space-12) 0 var(--space-6);
+    max-width: none;
+  }
+
+  .letter-body ol,
+  .letter-body ul {
+    padding-left: var(--space-8);
+    margin-bottom: var(--space-6);
+    font-family: 'Source Serif 4', serif;
+    font-size: clamp(1.125rem, 1.05rem + 0.4vw, 1.25rem);
+    line-height: 1.7;
+  }
+  .letter-body ol li,
+  .letter-body ul li {
+    margin-bottom: var(--space-4);
+  }
+  .letter-body ol li strong,
+  .letter-body ul li strong {
+    color: var(--color-ink);
+  }
+
+  /* Pull quote */
+  .pullquote {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(1.5rem, 1.2rem + 1.5vw, 2.25rem);
+    line-height: 1.25;
+    letter-spacing: -0.02em;
+    color: var(--color-ink);
+    padding: var(--space-10) 0;
+    margin: var(--space-12) 0;
+    border-top: 1px solid var(--color-rule);
+    border-bottom: 1px solid var(--color-rule);
+    max-width: none;
+  }
+  .pullquote:before {
+    content: "";
+    display: block;
+    width: 40px;
+    height: 3px;
+    background: var(--color-accent);
+    margin-bottom: var(--space-6);
+  }
+
+  /* Inline signup */
+  .inline-signup {
+    padding: var(--space-8);
+    background: var(--color-surface);
+    border-radius: var(--radius-md);
+    margin: var(--space-12) 0;
+    border-left: 4px solid var(--color-accent);
+  }
+  .inline-signup h3 {
+    font-family: 'Fraunces', serif;
+    font-size: var(--text-lg);
+    margin-bottom: var(--space-4);
+  }
+  .inline-signup .signup-form {
+    max-width: none;
+  }
+
+  /* Signature */
+  .signature {
+    margin-top: var(--space-16);
+    padding-top: var(--space-8);
+    border-top: 1px solid var(--color-rule);
+    font-family: 'Source Serif 4', serif;
+    font-style: italic;
+    color: var(--color-ink-soft);
+    line-height: 1.5;
+  }
+  .signature strong {
+    display: block;
+    font-family: 'Fraunces', serif;
+    font-style: normal;
+    color: var(--color-ink);
+    font-size: var(--text-lg);
+    margin-bottom: var(--space-1);
+  }
+
+  /* Final CTA */
+  .letter-final {
+    background: var(--color-ink);
+    color: var(--color-bg);
+    padding: clamp(var(--space-16), 10vw, var(--space-24)) 0;
+    text-align: center;
+  }
+  .letter-final h2 {
+    color: var(--color-bg);
+    max-width: 20ch;
+    margin: 0 auto var(--space-6);
+  }
+  .letter-final p {
+    color: rgba(245, 241, 232, 0.75);
+    max-width: 46ch;
+    margin: 0 auto var(--space-10);
+    font-size: var(--text-lg);
+    font-style: italic;
+  }
+  .letter-final .signup-form,
+  .letter-final .success-box {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .letter-final input {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 255, 255, 0.2);
+    color: #fff;
+  }
+  .letter-final input::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+  }
+  .letter-final .btn {
+    background: var(--color-accent);
+    color: #fff;
+  }
+  .letter-final .btn:hover { background: var(--color-accent-soft); }
+  .letter-final .form-note {
+    color: rgba(245, 241, 232, 0.55);
+    text-align: center;
+  }
+  .letter-final .success-box {
+    background: rgba(255, 255, 255, 0.06);
+    color: var(--color-bg);
+    border-color: rgba(255, 255, 255, 0.15);
+  }
+
+  .letter-body em {
+    color: var(--color-accent);
+    font-style: italic;
+  }
+</style>
+</head>
+<body>
+
+<nav class="topnav">
+  <div class="topnav-inner">
+    <a class="brand" href="./index.html">
+      <svg class="brand-mark" viewBox="0 0 32 32" fill="none" aria-label="USA Insider logo">
+        <rect x="2" y="2" width="28" height="28" rx="5" stroke="currentColor" stroke-width="2.5"/>
+        <text x="16" y="21" text-anchor="middle" font-family="Fraunces, Georgia, serif" font-size="14" font-weight="700" fill="currentColor">UI</text>
+      </svg>
+      <span class="brand-name">USA Insider</span>
+      <span class="brand-tag">A letter from the editor</span>
+    </a>
+  </div>
+</nav>
+
+<header class="letter-header">
+  <div class="container-narrow">
+    <p class="kicker">A letter from the founding editor</p>
+    <h1 class="display">Why we started USA Insider.</h1>
+    <p class="letter-meta">About 4 minutes to read · Published July 2026</p>
+  </div>
+</header>
+
+<article class="letter-body">
+  <div class="container-prose">
+
+    <p class="opener">I turned 52 last year, and somewhere around my birthday I realized I'd stopped reading financial news.</p>
+
+    <p>Not because I stopped caring about my money. I care more than ever — I've got two kids in college, a mortgage I refinanced at the wrong time, and a retirement account that needs to last another 30 years.</p>
+
+    <p>I stopped reading because financial news stopped being for people like me.</p>
+
+    <p>Open CNBC and it's five men shouting about Nvidia. Open the Wall Street Journal app and there are 47 stories, half of them behind a second paywall. Open Twitter and it's crypto guys and doomers. Open your bank's "insights" newsletter and it's a thinly-disguised ad for a wealth management product you don't need.</p>
+
+    <p>None of it respects your time. None of it assumes you're an adult. And almost none of it actually helps you make a decision on a Tuesday morning.</p>
+
+    <blockquote class="pullquote">
+      So we built the thing we wanted. A single email. Every weekday. In your inbox by 6am Eastern. Five minutes to read, including the chart.
+    </blockquote>
+
+    <h2>What USA Insider is</h2>
+
+    <p>Each issue has the same five sections:</p>
+
+    <ol>
+      <li><strong>The big one.</strong> The most important money story of the day, in about 200 words. What happened, what it means, what to do (or not do).</li>
+      <li><strong>The number.</strong> One figure worth understanding — a Fed projection, a jobs revision, a retirement benchmark. Explained without jargon.</li>
+      <li><strong>One chart.</strong> Because sometimes the picture is the story.</li>
+      <li><strong>Quick hits.</strong> Four or five things that moved, in one sentence each.</li>
+      <li><strong>One thing worth your time.</strong> A longer read from somewhere else — usually not a finance publication — that we think is worth 10 minutes of your weekend.</li>
+    </ol>
+
+    <p>That's it. No podcast. No app. No "premium tier." No affiliate links to trading platforms.</p>
+
+    <div class="inline-signup">
+      <h3>If this sounds like what you've been looking for.</h3>
+      <form class="signup-form">
+        <input type="email" placeholder="your@email.com" aria-label="Email address" required>
+        <button type="submit" class="btn btn-accent">Send me tomorrow's brief →</button>
+      </form>
+      <div class="success-box">
+        ✓ You're in. Tomorrow's brief arrives at <strong class="success-email"></strong> at 6am ET.
+      </div>
+      <p class="form-note">Free. One-click unsubscribe. Read the rest of the letter below.</p>
+    </div>
+
+    <h2>Who writes it</h2>
+
+    <p>A small independent team. We're all over 40. We all have our own money at stake in the things we write about — mortgages, retirement accounts, kids' tuition, the same math you're doing at your kitchen table.</p>
+
+    <p>We don't take sponsorships from brokerages, crypto exchanges, or "financial education" companies. We don't run affiliate links to trading platforms. If we ever take an ad, it will be from a business <em>we'd actually use</em> — clearly labeled, at the bottom of the email, never disguised as content.</p>
+
+    <h2>Who it's for</h2>
+
+    <p>People who used to read the paper on Sunday and want that feeling back. People who have real money on the line and can't afford to be entertained instead of informed. People who are tired of being sold to.</p>
+
+    <p>If that's you, tomorrow's issue is ready.</p>
+
+    <h2>One more thing</h2>
+
+    <p>If you subscribe and it's not for you, unsubscribe. No hard feelings. We'd rather have 50,000 people who actually read us than 500,000 who don't.</p>
+
+    <div class="signature">
+      <strong>— The founding editor</strong>
+      USA Insider
+    </div>
+
+  </div>
+</article>
+
+<section class="letter-final">
+  <div class="container-narrow">
+    <p class="kicker" style="color: var(--color-accent-soft);">If you've read this far</p>
+    <h2 class="display">You're already the kind of reader we wrote this for.</h2>
+    <p>Tomorrow's issue lands at 6am Eastern. Five minutes. Free forever.</p>
+
+    <form class="signup-form">
+      <input type="email" placeholder="your@email.com" aria-label="Email address" required>
+      <button type="submit" class="btn btn-accent">Start tomorrow morning →</button>
+    </form>
+    <div class="success-box">
+      ✓ Welcome. Tomorrow's brief will arrive at <strong class="success-email"></strong> at 6am ET.
+    </div>
+    <p class="form-note">Free forever · One-click unsubscribe · We will never sell your email address. Ever.</p>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div>
+      <a class="brand" href="./index.html">
+        <svg class="brand-mark" viewBox="0 0 32 32" fill="none" aria-label="USA Insider">
+          <rect x="2" y="2" width="28" height="28" rx="5" stroke="currentColor" stroke-width="2.5"/>
+          <text x="16" y="21" text-anchor="middle" font-family="Fraunces, Georgia, serif" font-size="14" font-weight="700" fill="currentColor">UI</text>
+        </svg>
+        <span class="brand-name">USA Insider</span>
+      </a>
+      <p class="footer-note mt-4">A 5-minute US money brief for grown-ups. Every weekday at 6am ET.</p>
+    </div>
+  </div>
+</footer>
+
+<script src="./app.js" defer></script>
+</body>
+</html>
